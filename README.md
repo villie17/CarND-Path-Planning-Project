@@ -5,10 +5,10 @@ The project consists of finding optimal path for driving on 3-lane highway. The 
 2. Avoid any collisions.
 
 Provided input:
-1. Localization information.
-   Ego car's location(x,y,s,d) and velocity are provided
+1. Localization information
+   * Ego car's location(x,y,s,d) and velocity are provided
  2. Sensor fusion
-   All cars in environment and their location and velocity is provided
+   * All cars in environment and their location and velocity is provided
 
 Output:
 1. Set of trajectory points in front of car 
