@@ -15,12 +15,12 @@ Output:
 
 The actuator in simulator would traverse those points perfectly with each point taking 0.02 seconds.
 
-### Trajectory generation
+## Trajectory generation
 Trajectory is generated using spline library. At every cycle 5 points are selected, two of which are last  points
 of previous trajectory and 3 points are extrapolation of those points into target lane (given by d in Frenet coordinates) 30 meters apart. These 5 points generate a spline which passes through all these points.
 After that 50 points on that spline are selected in a way that target speed can be achieved.
 
-### Lane change behavior
+## Lane change behavior
 Lane change behavior is modeled using a Finite State Machine (FSM) transitions.
 5 states are chosen.
  1.   KEEP_LANE
