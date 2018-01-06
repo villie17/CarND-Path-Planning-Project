@@ -7,13 +7,13 @@ The project consists of finding optimal path for driving on 3-lane highway. The 
 Provided input:
 1. Localization information
    <p>Ego car's location in Cartesian and Frenet coordinates and velocity are provided
- 2. Sensor fusion
+2. Sensor fusion
    <p>All cars in environment and their location and velocity is provided
 
 Output:
 1. Set of trajectory points in front of car 
 
-The actuator in simulator would traverse those points perfectly each point taking 0.02 seconds.
+The actuator in simulator would traverse those points perfectly with each point taking 0.02 seconds.
 
 ### Trajectory generation
 Trajectory is generated using spline library. At every cycle 5 points are selected, two of which are last  points
@@ -45,4 +45,29 @@ Keep lane pretains to state where car stays in current lane. This is done when
 Safe distance is defined as
 * No car 30 meters ahead in front lane.    
 * No car between 20 meters ahead and 10 meters behind in adjacent lanes
+
+##### State Transitions 
+1. KEEP_LANE can transit into CHANGE_LEFT/RIGHT and PREPARE_LEFT/RIGHT_CHANGE.
+2. PREPARE_LEFT/RIGHT_CHANGE can transit back to KEEP_LANE or CHANGE_LEFT/RIGHT
+3. CHANGE_LEFT/RIGHT will transit to KEEP_LANE
+4. All States can transit to same states.
+
+At every cycle next state transitions are calculated again.
+
+## Implementation details
+
+A class CarStatus is defined to hold information about the current status of car
+1. Current Car State
+2. Current Speed
+3. Current Lane
+
+NextAction() function implements the automata for FSM. It takes information about sensor fusion and current car information and calculates 
+1. Next Car State
+2. Target Speed
+3. Target Lane
+
+It makes use of checkLaneSafe() function
+
+In main code a single CarStatus object is used to track cars status. At start it uses NextAction to predict the next behavorial step.
+Afterwards trajectory is created to achieve that behavior using splines as explained earlier.
    
