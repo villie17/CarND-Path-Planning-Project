@@ -1,23 +1,23 @@
 # CarND-Path-Planning-Project
 
 The project consists of finding optimal path for driving on 3-lane highway. The goal is to stay as close to speed limit as possible without exceeding it. Constraints are 
-1. Do not exceeding maximum acceleration of 10 m/s^2 and jerk of 10 m/s^3
+1. Do not exceed maximum acceleration of 10 m/s^2 and jerk of 10 m/s^3.
 2. Avoid any collisions.
 
-Provided input:
+**Provided input**
 1. Localization information
-   <p>Ego car's location in Cartesian and Frenet coordinates and velocity are provided
+   <p>Ego car's location in Cartesian and Frenet coordinates and velocity are provided.
 2. Sensor fusion
-   <p>All cars in environment and their location and velocity is provided
+   <p>All cars in environment and their location and velocity is provided.
 
-Output:
-1. Set of trajectory points in front of car 
+**Output**
+1. Set of trajectory points in front of car.
 
 The actuator in simulator would traverse those points perfectly with each point taking 0.02 seconds.
 
 ## Trajectory generation
 Trajectory is generated using spline library. At every cycle 5 points are selected, two of which are last  points
-of previous trajectory and 3 points are extrapolation of those points into target lane (given by d in Frenet coordinates) 30 meters apart. These 5 points generate a spline which passes through all these points.
+of previous trajectory and 3 points are extrapolation of those points into target lane (given by d in Frenet coordinates) 30 meters apart. These 5 points are utilized to generate a spline which passes through all these points.
 After that 50 points on that spline are selected in a way that target speed can be achieved.
 
 ## Lane change behavior
