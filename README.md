@@ -33,16 +33,16 @@ Lane change behavior is modeled using a Finite State Machine (FSM) transitions.
 These states are defined below
 #### KEEP_LANE 
 Keep lane pretains to state where car stays in current lane. This is done when
-a. There is no car in front of ego car. Try to got at maximum speed
-b. There is car in front of ego car but adjacent lanes have slower traffic. Try to go at speed of car in front
+* There is no car in front of ego car. Try to got at maximum speed
+* There is car in front of ego car but adjacent lanes have slower traffic. Try to go at speed of car in front
 #### CHANGE_LEFT/CHANGE_RIGHT 
-a. There is a slower car in front in current lane and moving to left/right lane is safe.
+* There is a slower car in front in current lane and moving to left/right lane is safe.
 #### PREPARE_LEFT/RIGHT_CHANGE
-a. There is a slower car in font in current lane but moving to adjacent lane is not safe. Go at speed of front car
+* There is a slower car in font in current lane but moving to adjacent lane is not safe. Go at speed of front car
    and wait for space to open up in adjacent lane. In case car can chose between both left and right lanes, left is always 
    preferred assuming left lanes are faster lanes.
    
 Safe distance is defined as
-a. No car 30 meters ahead in front lane.    
-b. No car between 20 meters ahead and 10 meters behind in adjacent lanes
+* No car 30 meters ahead in front lane.    
+* No car between 20 meters ahead and 10 meters behind in adjacent lanes
    
