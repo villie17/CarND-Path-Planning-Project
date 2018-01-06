@@ -49,8 +49,8 @@ Safe distance is defined as
 ##### State Transitions 
 1. KEEP_LANE can transit into CHANGE_LEFT/RIGHT and PREPARE_LEFT/RIGHT_CHANGE.
 2. PREPARE_LEFT/RIGHT_CHANGE can transit back to KEEP_LANE or CHANGE_LEFT/RIGHT
-3. CHANGE_LEFT/RIGHT will transit to KEEP_LANE
-4. All States can transit to same states.
+3. CHANGE_LEFT/RIGHT will transit to KEEP_LANE and PREPARE_LEFT/RIGHT_CHANGE
+4. All States can transit to same original states.
 
 At every cycle next state transitions are calculated again.
 
